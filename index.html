@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Stack | High-ROI Tech & Finance</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card-hover:hover { transform: translateY(-4px); border-color: #3b82f6; }
+        .filter-active { background-color: #3b82f6 !important; color: white !important; border-color: #3b82f6 !important; }
+        .fintech-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+
+    <nav class="bg-gray-900 text-white sticky top-0 z-50 p-4 shadow-2xl border-b border-gray-800">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <h1 class="font-black text-xl tracking-tighter italic uppercase">Asset<span class="text-blue-500">Stack</span></h1>
+            <div class="flex gap-4 text-[10px] font-bold uppercase tracking-widest">
+                <a href="about.html" class="hover:text-blue-400 transition-colors">Bio</a>
+                <a href="legal.html" class="text-gray-500 hover:text-white transition-colors">Legal</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-12 px-6 text-center max-w-4xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
+            The Professional <span class="text-blue-600 italic font-black">ROI</span> Hub.
+        </h2>
+        <p class="mt-4 text-gray-500 max-w-xl mx-auto text-sm md:text-base">
+            Curated systems for Developers and Finance professionals.
+        </p>
+    </header>
+
+    <div class="max-w-5xl mx-auto px-6 mb-8">
+        <div class="bg-gray-900 rounded-3xl p-1 shadow-2xl overflow-hidden">
+            <div class="bg-gray-800 rounded-[22px] px-6 py-4 flex flex-col md:flex-row items-center justify-between border border-gray-700">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.3em]">Portfolio Status</p>
+                    <h4 class="text-white text-lg font-bold italic">Active Assets Audited</h4>
+                </div>
+                <div class="flex gap-8">
+                    <div class="text-center">
+                        <span id="asset-count" class="block text-2xl font-black text-white">0</span>
+                        <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Strategies</span>
+                    </div>
+                    <div class="text-center border-l border-gray-700 pl-8">
+                        <span class="block text-2xl font-black text-green-400">Live</span>
+                        <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Feed Status</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 mb-12">
+        <div class="flex flex-wrap justify-center gap-2" id="filter-bar">
+            <button onclick="filterAssets('All', this)" class="filter-btn filter-active px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 transition-all">All</button>
+            <button onclick="filterAssets('Tech Stack', this)" class="filter-btn bg-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 hover:border-blue-500 transition-all">Tech</button>
+            <button onclick="filterAssets('Financial Utility', this)" class="filter-btn bg-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 hover:border-blue-500 transition-all">Finance</button>
+            <button onclick="filterAssets('Bounty', this)" class="filter-btn bg-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 hover:border-blue-500 transition-all">Bounties</button>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto p-6 min-h-[400px]">
+        <div id="product-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="col-span-full text-center py-20 text-gray-400 italic font-medium animate-pulse">
+                Synchronizing live asset data...
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-500 py-16 mt-24 px-6 border-t border-gray-800">
+        <div class="max-w-5xl mx-auto text-center">
+            <p class="text-[10px] uppercase tracking-widest mb-4 font-bold text-gray-400 italic underline">Official Amazon Associate Partner</p>
+            <p class="text-xs">&copy; 2025 Asset Stack. Managed by Finance & Marketing Experts.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDzqvg6xz-acaxKrKEQ7Ht5M9mzcrGAIhw",
+            authDomain: "asset-stack.firebaseapp.com",
+            databaseURL: "https://asset-stack-default-rtdb.firebaseio.com",
+            projectId: "asset-stack",
+            storageBucket: "asset-stack.firebasestorage.app",
+            messagingSenderId: "324975878662",
+            appId: "1:324975878662:web:91f270faa2d57151ad9987"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const container = document.getElementById('product-container');
+        const countDisplay = document.getElementById('asset-count');
+        let allAssets = [];
+
+        // Real-time listener
+        const productRef = ref(db, 'products');
+        onValue(productRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                allAssets = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
+                countDisplay.innerText = allAssets.length;
+                renderAssets(allAssets);
+            } else {
+                container.innerHTML = '<div class="col-span-full text-center p-12 bg-white rounded-3xl border-2 border-dashed border-gray-200 text-gray-400 font-bold italic">No assets currently live. Check the Admin panel.</div>';
+                countDisplay.innerText = "0";
+            }
+        });
+
+        function renderAssets(assets) {
+            container.innerHTML = assets.map(p => `
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden card-hover transition-all duration-300">
+                    <div class="p-8">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-md uppercase italic tracking-tighter border border-blue-100">
+                                ${p.category}
+                            </span>
+                            <span class="text-sm font-bold text-gray-900">${p.price}</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">${p.name}</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-8 h-12 overflow-hidden">${p.description}</p>
+                        <a href="${p.link}" target="_blank" class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl shadow-lg transition-all active:scale-95">
+                            Analyze Deal
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Global filter function
+        window.filterAssets = (category, btn) => {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('filter-active');
+                b.classList.add('bg-white');
+            });
+            btn.classList.add('filter-active');
+            btn.classList.remove('bg-white');
+
+            if (category === 'All') {
+                renderAssets(allAssets);
+            } else {
+                const filtered = allAssets.filter(a => a.category === category);
+                renderAssets(filtered);
+            }
+        };
+    </script>
+</body>
+</html>
