@@ -3,50 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asset Stack | High-ROI Tech & Finance</title>
+    <title>Asset Stack | Global ROI Infrastructure</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
         .card-hover:hover { transform: translateY(-4px); border-color: #3b82f6; }
         .filter-active { background-color: #3b82f6 !important; color: white !important; border-color: #3b82f6 !important; }
-        .fintech-gradient { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+        
+        @keyframes pulse-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .status-blink { animation: pulse-red 1.5s infinite; }
+
+        /* Professional Loading Screen */
+        #loader {
+            position: fixed; inset: 0; background: #020617;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            z-index: 100; transition: opacity 0.8s ease-out;
+        }
+        .loader-logo { font-size: 2.5rem; font-weight: 900; font-style: italic; text-transform: uppercase; color: white; margin-bottom: 1rem; }
+        .loader-bar { width: 150px; height: 2px; background: #1e293b; position: relative; overflow: hidden; }
+        .loader-progress { position: absolute; height: 100%; width: 50%; background: #3b82f6; animation: load 1.5s infinite ease-in-out; }
+        @keyframes load { 0% { left: -50%; } 100% { left: 100%; } }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+<body class="bg-gray-50 text-gray-900 font-sans antialiased overflow-x-hidden">
+
+    <div id="loader">
+        <div class="loader-logo">Asset<span class="text-blue-500">Stack</span></div>
+        <div class="loader-bar"><div class="loader-progress"></div></div>
+        <p class="text-gray-500 text-[8px] uppercase tracking-[0.4em] mt-4 font-black">Connecting Global Nodes</p>
+    </div>
 
     <nav class="bg-gray-900 text-white sticky top-0 z-50 p-4 shadow-2xl border-b border-gray-800">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <h1 class="font-black text-xl tracking-tighter italic uppercase">Asset<span class="text-blue-500">Stack</span></h1>
             <div class="flex gap-4 text-[10px] font-bold uppercase tracking-widest">
                 <a href="about.html" class="hover:text-blue-400 transition-colors">Bio</a>
-                <a href="Legal.html" class="text-gray-500 hover:text-white transition-colors">Legal</a>
+                <a href="legal.html" class="text-gray-500 hover:text-white transition-colors">Legal</a>
             </div>
         </div>
     </nav>
 
     <header class="py-12 px-6 text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tight">
-            The Professional <span class="text-blue-600 italic font-black">ROI</span> Hub.
-        </h2>
-        <p class="mt-4 text-gray-500 max-w-xl mx-auto text-sm md:text-base">
-            Curated systems for Developers and Finance professionals.
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tighter uppercase italic">The Professional <span class="text-blue-600">ROI</span> Hub.</h2>
+        <p class="mt-4 text-gray-500 max-w-xl mx-auto text-sm md:text-base font-medium">
+            Curated systems and Amazon-partnered assets for Developers and Finance professionals.
         </p>
     </header>
 
     <div class="max-w-5xl mx-auto px-6 mb-8">
-        <div class="bg-gray-900 rounded-3xl p-1 shadow-2xl overflow-hidden">
-            <div class="bg-gray-800 rounded-[22px] px-6 py-4 flex flex-col md:flex-row items-center justify-between border border-gray-700">
-                <div class="text-center md:text-left mb-4 md:mb-0">
-                    <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.3em]">Portfolio Status</p>
-                    <h4 class="text-white text-lg font-bold italic">Active Assets Audited</h4>
-                </div>
-                <div class="flex gap-8">
-                    <div class="text-center">
-                        <span id="asset-count" class="block text-2xl font-black text-white">0</span>
-                        <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Strategies</span>
+        <div class="bg-gray-900 rounded-3xl p-1 shadow-2xl border border-gray-800">
+            <div class="bg-gray-800 rounded-[22px] px-6 py-6 border border-gray-700">
+                <div class="flex flex-col md:flex-row items-center justify-between">
+                    <div class="text-center md:text-left mb-6 md:mb-0">
+                        <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.3em]">Portfolio Intelligence</p>
+                        <h4 class="text-white text-lg font-bold italic uppercase">Live Global Nodes</h4>
+                        
+                        <div class="mt-3 flex flex-wrap gap-4 border-t border-gray-700 pt-3">
+                            <div id="sync-ng" class="flex items-center text-[8px] font-black uppercase text-gray-400"></div>
+                            <div id="sync-us" class="flex items-center text-[8px] font-black uppercase text-blue-400"></div>
+                            <div id="sync-utc" class="flex items-center text-[8px] font-black uppercase text-gray-500"></div>
+                        </div>
                     </div>
-                    <div class="text-center border-l border-gray-700 pl-8">
-                        <span class="block text-2xl font-black text-green-400">Live</span>
-                        <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Feed Status</span>
+
+                    <div class="flex gap-8">
+                        <div class="text-center">
+                            <span id="asset-count" class="block text-3xl font-black text-white">0</span>
+                            <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Active Assets</span>
+                        </div>
+                        <div class="text-center border-l border-gray-700 pl-8">
+                            <span id="user-count" class="block text-3xl font-black text-green-400">1</span>
+                            <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Live Users</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -54,32 +80,26 @@
     </div>
 
     <div class="max-w-5xl mx-auto px-6 mb-12">
-        <div class="flex flex-wrap justify-center gap-2" id="filter-bar">
-            <button onclick="filterAssets('All', this)" class="filter-btn filter-active px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 transition-all">All</button>
-            <button onclick="filterAssets('Tech Stack', this)" class="filter-btn bg-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 hover:border-blue-500 transition-all">Tech</button>
-            <button onclick="filterAssets('Financial Utility', this)" class="filter-btn bg-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 hover:border-blue-500 transition-all">Finance</button>
-            <button onclick="filterAssets('Bounty', this)" class="filter-btn bg-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 hover:border-blue-500 transition-all">Bounties</button>
+        <div class="flex flex-wrap justify-center gap-2">
+            <button onclick="filterAssets('All', this)" class="filter-btn filter-active px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">All Nodes</button>
+            <button onclick="filterAssets('Tech Stack', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">Tech</button>
+            <button onclick="filterAssets('Financial Utility', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">Finance</button>
+            <button onclick="filterAssets('Bounty', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">Bounties</button>
         </div>
     </div>
 
     <main class="max-w-6xl mx-auto p-6 min-h-[400px]">
-        <div id="product-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <div class="col-span-full text-center py-20 text-gray-400 italic font-medium animate-pulse">
-                Synchronizing live asset data...
-            </div>
-        </div>
+        <div id="product-container" class="grid gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
     </main>
 
-    <footer class="bg-gray-900 text-gray-500 py-16 mt-24 px-6 border-t border-gray-800">
-        <div class="max-w-5xl mx-auto text-center">
-            <p class="text-[10px] uppercase tracking-widest mb-4 font-bold text-gray-400 italic underline">Official Amazon Associate Partner</p>
-            <p class="text-xs">&copy; 2025 Asset Stack. Managed by Finance & Marketing Experts.</p>
-        </div>
+    <footer class="bg-gray-900 text-gray-500 py-16 mt-24 px-6 border-t border-gray-800 text-center">
+        <p class="text-[10px] uppercase tracking-widest mb-4 font-bold text-gray-400 italic underline">Official Amazon Associate Partner</p>
+        <p class="text-xs">&copy; 2026 Asset Stack. Global Infrastructure.</p>
     </footer>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+        import { getDatabase, ref, onValue, push, onDisconnect, set, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyDzqvg6xz-acaxKrKEQ7Ht5M9mzcrGAIhw",
@@ -95,58 +115,78 @@
         const db = getDatabase(app);
         const container = document.getElementById('product-container');
         const countDisplay = document.getElementById('asset-count');
+        const userDisplay = document.getElementById('user-count');
         let allAssets = [];
 
-        // Real-time listener
-        const productRef = ref(db, 'products');
-        onValue(productRef, (snapshot) => {
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 800);
+            }, 3500); 
+        });
+
+        // Real-Time Clock
+        function updateClocks() {
+            const now = new Date();
+            const timeOpt = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('sync-ng').innerHTML = `<span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 status-blink"></span> NG: ${now.toLocaleTimeString('en-GB', { ...timeOpt, timeZone: 'Africa/Lagos' })}`;
+            document.getElementById('sync-us').innerHTML = `<span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 status-blink"></span> US/EST: ${now.toLocaleTimeString('en-US', { ...timeOpt, timeZone: 'America/New_York' })}`;
+            document.getElementById('sync-utc').innerHTML = `<span class="w-1.5 h-1.5 bg-white rounded-full mr-2 status-blink"></span> INTL: ${now.toLocaleTimeString('en-GB', { ...timeOpt, timeZone: 'UTC' })}`;
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        // User Presence
+        const connectedRef = ref(db, ".info/connected");
+        const userListRef = ref(db, "presence");
+        onValue(connectedRef, (snap) => {
+            if (snap.val() === true) {
+                const myUserRef = push(userListRef);
+                onDisconnect(myUserRef).remove();
+                set(myUserRef, { active: true });
+            }
+        });
+        onValue(userListRef, (snap) => { userDisplay.innerText = snap.size || 1; });
+
+        // Assets
+        onValue(ref(db, 'products'), (snapshot) => {
             const data = snapshot.val();
             if (data) {
-                allAssets = Object.keys(data).map(key => ({ id: key, ...data[key] })).reverse();
+                allAssets = Object.keys(data).map(k => ({ id: k, ...data[k] })).reverse();
                 countDisplay.innerText = allAssets.length;
                 renderAssets(allAssets);
-            } else {
-                container.innerHTML = '<div class="col-span-full text-center p-12 bg-white rounded-3xl border-2 border-dashed border-gray-200 text-gray-400 font-bold italic">No assets currently live. Check the Admin panel.</div>';
-                countDisplay.innerText = "0";
             }
         });
 
         function renderAssets(assets) {
-            container.innerHTML = assets.map(p => `
-                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden card-hover transition-all duration-300">
-                    <div class="p-8">
-                        <div class="flex justify-between items-start mb-6">
-                            <span class="bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-md uppercase italic tracking-tighter border border-blue-100">
-                                ${p.category}
-                            </span>
-                            <span class="text-sm font-bold text-gray-900">${p.price}</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">${p.name}</h3>
-                        <p class="text-gray-500 text-sm leading-relaxed mb-8 h-12 overflow-hidden">${p.description}</p>
-                        <a href="${p.link}" target="_blank" class="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-2xl shadow-lg transition-all active:scale-95">
-                            Analyze Deal
-                        </a>
+            container.innerHTML = assets.map(p => {
+                const rating = parseFloat(p.rating) || 5.0;
+                const stars = Array.from({ length: 5 }, (_, i) => `<span class="${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-200'} text-xs">★</span>`).join('');
+                return `
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 flex flex-col card-hover transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-blue-50 text-blue-600 text-[10px] font-black px-3 py-1 rounded-md uppercase italic border border-blue-100">${p.category}</span>
+                        <div class="flex flex-col items-end"><div class="flex">${stars}</div><span class="text-[8px] text-gray-400 font-bold uppercase mt-1">Audit Score</span></div>
                     </div>
-                </div>
-            `).join('');
+                    ${p.img ? `<div class="mb-4 flex justify-center"><img src="${p.img}" class="h-32 object-contain"></div>` : ''}
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">${p.name}</h3>
+                    <div class="mb-4 text-xs font-bold text-blue-600 italic uppercase">${p.price}</div>
+                    <div class="bg-gray-50/70 rounded-2xl p-4 mb-8 flex-grow">
+                        <p class="text-gray-600 text-sm leading-relaxed whitespace-pre-line">${p.description}</p>
+                    </div>
+                    <a href="${p.link}" target="_blank" class="block w-full text-center bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg uppercase text-[10px]">Analyze Asset Node</a>
+                </div>`;
+            }).join('');
         }
 
-        // Global filter function
-        window.filterAssets = (category, btn) => {
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('filter-active');
-                b.classList.add('bg-white');
-            });
+        window.filterAssets = (cat, btn) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-active'));
             btn.classList.add('filter-active');
-            btn.classList.remove('bg-white');
-
-            if (category === 'All') {
-                renderAssets(allAssets);
-            } else {
-                const filtered = allAssets.filter(a => a.category === category);
-                renderAssets(filtered);
-            }
+            cat === 'All' ? renderAssets(allAssets) : renderAssets(allAssets.filter(a => a.category === cat));
         };
     </script>
 </body>
 </html>
+
