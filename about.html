@@ -3,51 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Asset Stack</title>
+    <title>Bio | Asset Stack Hub</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #020617; }
+        .gradient-text { background: linear-gradient(to right, #3b82f6, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-panel { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(12px); border: 1px solid rgba(30, 41, 59, 0.5); }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans antialiased">
+<body class="text-white font-sans min-h-screen flex flex-col items-center justify-center p-6">
 
-    <nav class="p-6 max-w-5xl mx-auto">
-        <a href="index.html" class="text-xs font-bold uppercase tracking-widest text-blue-600">← Back to Assets</a>
-    </nav>
+    <div class="max-w-xl w-full">
+        <a href="index.html" class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 hover:text-blue-500 transition-colors flex items-center mb-8">
+            <svg class="w-3 h-3 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+            Return to Hub
+        </a>
 
-    <main class="max-w-3xl mx-auto px-6 py-12">
-        <h1 class="text-4xl font-black tracking-tight text-gray-900 mb-8">
-            Optimizing the intersection of <span class="text-blue-600 font-extrabold uppercase italic">Finance & Tech.</span>
-        </h1>
-        
-        <div class="space-y-6 text-gray-600 leading-relaxed text-lg">
-            <p>
-                As a Web Developer and Marketing Strategist, I analyze systems for efficiency. In my career, I've noticed that most professionals treat their tools as <strong>expenses</strong>, when they should be treating them as <strong>assets</strong>.
-            </p>
-            
-            <p>
-                <strong>Asset Stack</strong> is a curated hub for high-ROI equipment and financial tools that move the needle for growing businesses and high-performance individuals.
-            </p>
+        <div class="glass-panel rounded-3xl p-8 md:p-12 shadow-2xl">
+            <h1 class="text-4xl font-black italic uppercase tracking-tighter mb-2">
+                Asset<span class="text-blue-500">Stack</span>
+            </h1>
+            <p class="text-[10px] font-black uppercase tracking-[0.4em] text-blue-400 mb-8 italic">Curated by Louis Ekemini</p>
 
-            <div class="bg-blue-900 text-white p-8 rounded-3xl shadow-xl my-10">
-                <h3 class="font-bold text-blue-400 mb-2 text-sm uppercase tracking-widest">Affiliate Disclosure</h3>
-                <p class="text-sm opacity-90 leading-normal">
-                    In compliance with FTC guidelines and the Amazon Associates Program: Asset Stack is a participant in the Amazon Services LLC Associates Program. Some links on this site are affiliate links, meaning I may earn a commission on qualifying purchases at no extra cost to you. I only list assets I have audited for performance.
+            <div class="space-y-6 text-gray-300 leading-relaxed">
+                <p class="text-lg font-medium text-white">
+                    I find the tools, assets, and deals that actually move the needle.
+                </p>
+                
+                <p>
+                    The internet is flooded with noise. AssetStack was built to be the filter. As an independent affiliate marketer, my goal is simple: to aggregate high-converting, high-value products into a single, streamlined interface.
+                </p>
+
+                <p>
+                    Every "Node" on this stack is hand-verified. Whether it’s software to scale your workflow or hardware to upgrade your setup, if it's here, it's worth the investment.
                 </p>
             </div>
 
-            <h2 class="text-2xl font-bold text-gray-900 pt-6">The Audit Process</h2>
-            <p>
-                Every asset listed here undergoes a three-point audit:
-                <ul class="list-disc ml-6 mt-4 space-y-2">
-                    <li><strong>Utility:</strong> Does it solve a specific professional bottleneck?</li>
-                    <li><strong>Longevity:</strong> Is this a long-term asset or a temporary trend?</li>
-                    <li><strong>Cost-Efficiency:</strong> Does the output justify the investment?</li>
-                </ul>
-            </p>
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-wrap gap-4">
+                <a href="https://x.com/assetstack01" class="bg-gray-800 hover:bg-blue-600 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">Twitter / X</a>
+                <a href="https://www.linkedin.com/in/louis-ekpo-542200317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="bg-gray-800 hover:bg-blue-600 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">LinkedIn</a>
+                <a href="mailto: ekeminiabasilouis@gmail.com" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all">Contact Node</a>
+            </div>
         </div>
-    </main>
 
-    <footer class="text-center py-20 text-gray-400 text-[10px] uppercase tracking-widest">
-        &copy; 2025 Asset Stack | Built by a Finance & Marketing Professional
-    </footer>
+        <p class="text-center mt-8 text-[9px] font-bold text-gray-600 uppercase tracking-widest">
+            Protocol v2.6 // Global Distribution Enabled
+        </p>
+    </div>
 
 </body>
 </html>
+
