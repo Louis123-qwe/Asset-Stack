@@ -3,21 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asset Stack | Global ROI Infrastructure</title>
+    <title>Asset Stack | High-Converting Deals</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        .card-hover:hover { transform: translateY(-4px); border-color: #3b82f6; }
+        .card-hover:hover { transform: translateY(-5px); border-color: #3b82f6; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
         .filter-active { background-color: #3b82f6 !important; color: white !important; border-color: #3b82f6 !important; }
-        
         @keyframes pulse-red { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
         .status-blink { animation: pulse-red 1.5s infinite; }
-
-        /* Professional Loading Screen */
-        #loader {
-            position: fixed; inset: 0; background: #020617;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            z-index: 100; transition: opacity 0.8s ease-out;
-        }
+        #loader { position: fixed; inset: 0; background: #020617; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 100; transition: opacity 0.8s ease-out; }
         .loader-logo { font-size: 2.5rem; font-weight: 900; font-style: italic; text-transform: uppercase; color: white; margin-bottom: 1rem; }
         .loader-bar { width: 150px; height: 2px; background: #1e293b; position: relative; overflow: hidden; }
         .loader-progress { position: absolute; height: 100%; width: 50%; background: #3b82f6; animation: load 1.5s infinite ease-in-out; }
@@ -29,24 +22,22 @@
     <div id="loader">
         <div class="loader-logo">Asset<span class="text-blue-500">Stack</span></div>
         <div class="loader-bar"><div class="loader-progress"></div></div>
-        <p class="text-gray-500 text-[8px] uppercase tracking-[0.4em] mt-4 font-black">Connecting Global Nodes</p>
+        <p class="text-gray-500 text-[8px] uppercase tracking-[0.4em] mt-4 font-black">Optimizing Conversion Paths</p>
     </div>
 
-    <nav class="bg-gray-900 text-white sticky top-0 z-50 p-4 shadow-2xl border-b border-gray-800">
+    <nav class="bg-gray-900 text-white sticky top-0 z-50 p-4 border-b border-gray-800 shadow-xl">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
             <h1 class="font-black text-xl tracking-tighter italic uppercase">Asset<span class="text-blue-500">Stack</span></h1>
             <div class="flex gap-4 text-[10px] font-bold uppercase tracking-widest">
                 <a href="about.html" class="hover:text-blue-400 transition-colors">Bio</a>
-                <a href="Legal.html" class="text-gray-500 hover:text-white transition-colors">Legal</a>
+                <a href="Legal.html" class="text-gray-500 hover:text-white transition-colors">Disclosures</a>
             </div>
         </div>
     </nav>
 
     <header class="py-12 px-6 text-center max-w-4xl mx-auto">
-        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight tracking-tighter uppercase italic">The Professional <span class="text-blue-600">ROI</span> Hub.</h2>
-        <p class="mt-4 text-gray-500 max-w-xl mx-auto text-sm md:text-base font-medium">
-            Curated systems and Amazon-partnered assets for Developers and Finance professionals.
-        </p>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 leading-tight tracking-tighter uppercase italic">Hand-Picked <span class="text-blue-600">Killer</span> Deals.</h2>
+        <p class="mt-4 text-gray-500 max-w-xl mx-auto text-sm md:text-base font-bold uppercase tracking-wide">Stop searching. Start winning. The ultimate collection of high-value assets.</p>
     </header>
 
     <div class="max-w-5xl mx-auto px-6 mb-8">
@@ -54,24 +45,21 @@
             <div class="bg-gray-800 rounded-[22px] px-6 py-6 border border-gray-700">
                 <div class="flex flex-col md:flex-row items-center justify-between">
                     <div class="text-center md:text-left mb-6 md:mb-0">
-                        <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.3em]">Portfolio Intelligence</p>
-                        <h4 class="text-white text-lg font-bold italic uppercase">Live Global Nodes</h4>
-                        
-                        <div class="mt-3 flex flex-wrap gap-4 border-t border-gray-700 pt-3">
+                        <p class="text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-1">Global Traffic Pulse</p>
+                        <div class="flex flex-wrap gap-4 mt-2">
                             <div id="sync-ng" class="flex items-center text-[8px] font-black uppercase text-gray-400"></div>
                             <div id="sync-us" class="flex items-center text-[8px] font-black uppercase text-blue-400"></div>
                             <div id="sync-utc" class="flex items-center text-[8px] font-black uppercase text-gray-500"></div>
                         </div>
                     </div>
-
                     <div class="flex gap-8">
                         <div class="text-center">
-                            <span id="asset-count" class="block text-3xl font-black text-white">0</span>
-                            <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Active Assets</span>
+                            <span id="asset-count" class="block text-3xl font-black text-white italic">0</span>
+                            <span class="text-[9px] text-gray-500 uppercase font-black tracking-widest">Total Deals</span>
                         </div>
                         <div class="text-center border-l border-gray-700 pl-8">
-                            <span id="user-count" class="block text-3xl font-black text-green-400">1</span>
-                            <span class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Live Users</span>
+                            <span id="user-count" class="block text-3xl font-black text-green-400 italic">1</span>
+                            <span class="text-[9px] text-gray-500 uppercase font-black tracking-widest">Active Now</span>
                         </div>
                     </div>
                 </div>
@@ -80,12 +68,7 @@
     </div>
 
     <div class="max-w-5xl mx-auto px-6 mb-12">
-        <div class="flex flex-wrap justify-center gap-2">
-            <button onclick="filterAssets('All', this)" class="filter-btn filter-active px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">All Nodes</button>
-            <button onclick="filterAssets('Tech Stack', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">Tech</button>
-            <button onclick="filterAssets('Financial Utility', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">Finance</button>
-            <button onclick="filterAssets('Bounty', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">Bounties</button>
-        </div>
+        <div id="category-filters" class="flex flex-wrap justify-center gap-2"></div>
     </div>
 
     <main class="max-w-6xl mx-auto p-6 min-h-[400px]">
@@ -93,9 +76,112 @@
     </main>
 
     <footer class="bg-gray-900 text-gray-500 py-16 mt-24 px-6 border-t border-gray-800 text-center">
-        <p class="text-[10px] uppercase tracking-widest mb-4 font-bold text-gray-400 italic underline">Official Amazon Associate Partner</p>
-        <p class="text-xs">&copy; 2026 Asset Stack. Global Infrastructure.</p>
+        <p class="text-[10px] uppercase tracking-widest mb-4 font-black text-blue-500 italic underline">Amazon Associate & Affiliate Partner</p>
+        <p class="text-xs font-bold uppercase">&copy; 2026 Asset Stack Hub.</p>
     </footer>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+        import { getDatabase, ref, onValue, push, onDisconnect, set, update, increment } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDzqvg6xz-acaxKrKEQ7Ht5M9mzcrGAIhw",
+            authDomain: "asset-stack.firebaseapp.com",
+            databaseURL: "https://asset-stack-default-rtdb.firebaseio.com",
+            projectId: "asset-stack",
+            storageBucket: "asset-stack.firebasestorage.app",
+            messagingSenderId: "324975878662",
+            appId: "1:324975878662:web:91f270faa2d57151ad9987"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const container = document.getElementById('product-container');
+        let allAssets = [];
+
+        // Simple Analytics
+        const today = new Date().toISOString().split('T')[0];
+        if (!sessionStorage.getItem('as_v')) {
+            update(ref(db, `analytics/daily/${today}`), { views: increment(1) });
+            sessionStorage.setItem('as_v', '1');
+        }
+
+        // Presence
+        onValue(ref(db, ".info/connected"), (snap) => { 
+            if (snap.val()) { 
+                const m = push(ref(db, "presence")); 
+                onDisconnect(m).remove(); 
+                set(m, { active: true }); 
+            }
+        });
+        onValue(ref(db, "presence"), (s) => document.getElementById('user-count').innerText = s.size || 1);
+
+        // Clocks
+        function updateClocks() {
+            const timeOpt = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
+            document.getElementById('sync-ng').innerHTML = `<span class="w-1.5 h-1.5 bg-green-500 rounded-full mr-2 status-blink"></span> NGN: ${new Date().toLocaleTimeString('en-GB', { ...timeOpt, timeZone: 'Africa/Lagos' })}`;
+            document.getElementById('sync-us').innerHTML = `<span class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-2 status-blink"></span> NYC: ${new Date().toLocaleTimeString('en-US', { ...timeOpt, timeZone: 'America/New_York' })}`;
+            document.getElementById('sync-utc').innerHTML = `<span class="w-1.5 h-1.5 bg-white rounded-full mr-2 status-blink"></span> LON: ${new Date().toLocaleTimeString('en-GB', { ...timeOpt, timeZone: 'Europe/London' })}`;
+        }
+        setInterval(updateClocks, 1000);
+        updateClocks();
+
+        // Tracking
+        window.trackClick = async (id, url) => {
+            await update(ref(db, `products/${id}`), { clicks: increment(1) });
+            window.open(url, '_blank');
+        };
+
+        onValue(ref(db, 'products'), (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+                allAssets = Object.keys(data).map(k => ({ id: k, ...data[k] })).reverse();
+                document.getElementById('asset-count').innerText = allAssets.length;
+                renderAssets(allAssets);
+            }
+        });
+
+        function renderAssets(assets) {
+            container.innerHTML = assets.map(p => {
+                const rating = parseFloat(p.rating) || 5.0;
+                const stars = Array.from({ length: 5 }, (_, i) => `<span class="${i < Math.floor(rating) ? 'text-yellow-400' : 'text-gray-200'} text-xs">★</span>`).join('');
+                return `
+                <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 flex flex-col card-hover transition-all duration-300 relative">
+                    ${(p.clicks || 0) > 20 ? `<div class="absolute top-0 right-0 bg-red-600 text-white text-[8px] font-black px-4 py-1 uppercase italic rounded-bl-xl shadow-md">Hot Deal</div>` : ''}
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="bg-gray-100 text-gray-800 text-[10px] font-black px-3 py-1 rounded-md uppercase border border-gray-200">${p.category}</span>
+                        <div class="flex flex-col items-end"><div class="flex">${stars}</div><span class="text-[8px] text-gray-400 font-bold uppercase mt-1 tracking-widest">Buyer Rating</span></div>
+                    </div>
+                    ${p.img ? `<div class="mb-4 h-32 flex items-center justify-center"><img src="${p.img}" class="max-h-full object-contain"></div>` : ''}
+                    <h3 class="text-xl font-black text-gray-900 mb-1 italic uppercase tracking-tighter">${p.name}</h3>
+                    <div class="mb-4 text-xs font-black text-blue-600 italic uppercase">${p.price}</div>
+                    <div class="bg-gray-50 rounded-2xl p-4 mb-8 flex-grow">
+                        <p class="text-gray-600 text-sm leading-relaxed font-medium">${p.description}</p>
+                    </div>
+                    <button onclick="trackClick('${p.id}', '${p.link}')" class="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-black py-4 rounded-2xl shadow-lg uppercase text-[10px] transition-all">Claim Asset Now</button>
+                </div>`;
+            }).join('');
+        }
+
+        onValue(ref(db, 'categories'), (snap) => {
+            const cats = snap.val() || {};
+            const filterDiv = document.getElementById('category-filters');
+            filterDiv.innerHTML = `<button onclick="filterAssets('All', this)" class="filter-btn filter-active px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">View All</button>`;
+            Object.values(cats).forEach(cat => {
+                filterDiv.innerHTML += `<button onclick="filterAssets('${cat}', this)" class="filter-btn bg-white px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200">${cat}</button>`;
+            });
+        });
+
+        window.filterAssets = (cat, btn) => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('filter-active'));
+            btn.classList.add('filter-active');
+            cat === 'All' ? renderAssets(allAssets) : renderAssets(allAssets.filter(a => a.category === cat));
+        };
+
+        window.addEventListener('load', () => setTimeout(() => document.getElementById('loader').style.display='none', 2500));
+    </script>
+</body>
+</html>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
